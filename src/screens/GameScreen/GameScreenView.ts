@@ -1,6 +1,6 @@
 import Konva from "konva";
 import type { View } from "../../types.ts";
-import { STAGE_WIDTH, STAGE_HEIGHT } from "../../constants.ts";
+import { STAGE_WIDTH, STAGE_HEIGHT, GAME_DURATION } from "../../constants.ts";
 
 /**
  * GameScreenView - Renders the game UI using Konva
@@ -39,7 +39,7 @@ export class GameScreenView implements View {
 		this.timerText = new Konva.Text({
 			x: STAGE_WIDTH - 150,
 			y: 20,
-			text: "Time: 60",
+			text: `Time: ${GAME_DURATION}`,
 			fontSize: 32,
 			fontFamily: "Arial",
 			fill: "red",

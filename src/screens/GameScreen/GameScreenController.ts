@@ -22,8 +22,7 @@ export class GameScreenController extends ScreenController {
 		this.model = new GameScreenModel();
 		this.view = new GameScreenView(() => this.handleLemonClick());
 
-		// TODO: Task 4 - Initialize squeeze sound audio
-		this.squeezeSound = new Audio(); // Placeholder
+		this.squeezeSound = new Audio("/squeeze.mp3");
 	}
 
 	/**
@@ -76,7 +75,8 @@ export class GameScreenController extends ScreenController {
 		this.view.updateScore(this.model.getScore());
 		this.view.randomizeLemonPosition();
 
-		// TODO: Task 4 - Play the squeeze sound
+		this.squeezeSound.currentTime = 0;
+		this.squeezeSound.play().catch((error) => console.error(error));
 	}
 
 	/**

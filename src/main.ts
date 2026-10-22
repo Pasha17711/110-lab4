@@ -81,8 +81,9 @@ class App implements ScreenSwitcher {
 				break;
 
 			case "result":
-				// Show results with the final score
-				this.resultsController.showResults(screen.score);
+				// Task 6 (Express). For Task 5, replace the next line with:
+				// this.resultsController.showResults(screen.score);
+				void this.resultsController.showResultsFromServer(screen.score);
 				break;
 		}
 	}
