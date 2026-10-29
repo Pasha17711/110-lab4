@@ -10,6 +10,7 @@ export class ResultsScreenView implements View {
 	private group: Konva.Group;
 	private finalScoreText: Konva.Text;
 	private leaderboardText: Konva.Text;
+	private statusText: Konva.Text;
 
 	constructor(onPlayAgainClick: () => void) {
 		this.group = new Konva.Group({ visible: false });
@@ -52,6 +53,12 @@ export class ResultsScreenView implements View {
 		});
 		this.leaderboardText.offsetX(this.leaderboardText.width() / 2);
 		this.group.add(this.leaderboardText);
+
+		this.statusText = new Konva.Text({
+			x: 30, y: 435, width: STAGE_WIDTH - 60,
+			text: "", fontSize: 16, fontFamily: "Arial", fill: "#a12616", align: "center",
+		});
+		this.group.add(this.statusText);
 
 		// Play Again button (grouped) - moved down to make room for leaderboard
 		const playAgainButtonGroup = new Konva.Group();
@@ -113,8 +120,14 @@ export class ResultsScreenView implements View {
 	}
 
 	/**
-	 * Show the screen
+	 * Display storage progress or an actionable error
 	 */
+	updateStatus(message: string): void {
+		this.statusText.text(message);
+		this.group.getLayer()?.draw();
+	}
+
+	/** Show the screen. */
 	show(): void {
 		this.group.visible(true);
 		this.group.getLayer()?.draw();

@@ -75,6 +75,10 @@ export class GameScreenView implements View {
 	/**
 	 * Randomize lemon position
 	 */
+	centerLemon(): void {
+		this.lemonImage?.position({ x: STAGE_WIDTH / 2, y: STAGE_HEIGHT / 2 });
+	}
+
 	randomizeLemonPosition(): void {
 		if (!this.lemonImage) return;
 
