@@ -81,8 +81,11 @@ class App implements ScreenSwitcher {
 				break;
 
 			case "result":
-				// Task 6 (Express). For Task 5, replace the next line with:
+				// Activate exactly ONE mode below, then save and refresh the browser.
+				// TASK 5 — localStorage (DevTools → Application → Local Storage)
 				// this.resultsController.showResults(screen.score);
+
+				// TASK 6 — Express (server/leaderboard.json); default
 				void this.resultsController.showResultsFromServer(screen.score);
 				break;
 		}
